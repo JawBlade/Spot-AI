@@ -25,8 +25,8 @@ def elevenlabs_api(text: str):
         output_format="pcm_16000"
     )
 
-    pcm_path = "ai_response_raw.pcm"
-    wav_path = "ai_response_raw.wav"
+    pcm_path = "./audio/ai_response_raw.pcm"
+    wav_path = "./audio/ai_response_raw.wav"
 
     with open(pcm_path, "wb") as f:
         for chunk in audio:

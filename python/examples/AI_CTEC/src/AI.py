@@ -15,12 +15,12 @@ from memory import init_db, add_conversation, get_last_conversations
 load_dotenv()
 openai = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-path = DB_PATH = "/home/jaw_blade/my_spot_env/spot-sdk/python/examples/AI_CTEC/spot_memory.db"
+path = DB_PATH = "/home/jaw_blade/my_spot_env/spot-sdk/python/examples/AI_CTEC/data/spot_memory.db"
 init_db(path)
 
-AUDIO_FILE = Path("h264.sdp.wav")
-TTS_RAW_FILE = Path("ai_response_raw.wav")
-FINAL_WAV_FILE = Path("ai_response.wav")
+AUDIO_FILE = Path("./audio/h264.sdp.wav")
+TTS_RAW_FILE = Path("./audio/ai_response_raw.wav")
+FINAL_WAV_FILE = Path("./audio/ai_response.wav")
 
 SYSTEM_PROMPT = (
     "MOST IMPORTANT RULE: If the user’s question requires current, recent, or time-sensitive information "
