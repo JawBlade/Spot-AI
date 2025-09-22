@@ -36,7 +36,7 @@ python3 -m pip install -r requirements.txt
 To run the example:
 
 ```
-python3 arm_joint_move.py ROBOT_IP
+python3 arm_joint_move.py 10.57.200.85
 ```
 
 ## Running the long trajectory example

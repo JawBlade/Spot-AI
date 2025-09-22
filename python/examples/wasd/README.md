@@ -21,7 +21,7 @@ python3 -m pip install -r requirements.txt
 ## Running the Example
 
 ```
-python3 wasd.py ROBOT_IP
+python3 wasd.py 192.168.80.3
 ```
 
 When run, this example will create an interface in your terminal listing the controls which are as follows:

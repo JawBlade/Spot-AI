@@ -65,6 +65,7 @@ def main():
     spot_cam.register_all_service_clients(sdk)
 
     robot = sdk.create_robot(options.hostname)
+    robot.authenticate("Bumble-Bee", "Bumble-Bee1!")
 
     result = command_dict[options.command].run(robot, options)
     if result is not None:

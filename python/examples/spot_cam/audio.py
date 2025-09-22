@@ -9,6 +9,7 @@ import shutil
 import tempfile
 
 from bosdyn.api.spot_cam import audio_pb2
+from bosdyn.client.util import authenticate
 from bosdyn.client.command_line import Command, Subcommands
 from bosdyn.client.spot_cam.audio import AudioClient
 
@@ -119,8 +120,10 @@ class AudioLoadSoundCommand(Command):
         sound = audio_pb2.Sound(name=options.name)
         with open(options.src, 'rb') as fh:
             data = fh.read()
-        robot.ensure_client(AudioClient.default_service_name).load_sound(sound, data)
-
+        try:
+            robot.ensure_client(AudioClient.default_service_name).load_sound(sound, data)
+        except Exception as e:
+            print("Error loading sound:", e)
 
 #
 # RPCs for Spot CAM+IR Only

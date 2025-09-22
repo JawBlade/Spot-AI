@@ -31,7 +31,7 @@ def hello_arm(config):
 
     sdk = bosdyn.client.create_standard_sdk('HelloSpotClient')
     robot = sdk.create_robot(config.hostname)
-    bosdyn.client.util.authenticate(robot)
+    robot.authenticate("Bumble-Bee", "Bumble-Bee1!")
     robot.time_sync.wait_for_sync()
 
     assert robot.has_arm(), 'Robot requires an arm to run this example.'
@@ -95,7 +95,7 @@ def hello_arm(config):
             odom_T_hand.rot.y, odom_T_hand.rot.z, ODOM_FRAME_NAME, seconds)
 
         # Make the open gripper RobotCommand
-        gripper_command = RobotCommandBuilder.claw_gripper_open_fraction_command(1.0)
+        gripper_command = RobotCommandBuilder.claw_gripper_open_fraction_command(0.1)
 
         # Combine the arm and gripper commands into one RobotCommand
         command = RobotCommandBuilder.build_synchro_command(gripper_command, arm_command)
